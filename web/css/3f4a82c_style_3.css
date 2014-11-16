@@ -1,0 +1,82 @@
+html, body{
+    height:100%;
+    width: 100%;
+}
+
+#global {
+    width:100%;
+    height:100%;
+}
+
+
+#header {
+    height: 50px;
+    background-color: #222222;
+    color: #9d9d9d;
+    padding: 10px;
+    border-bottom: 1px solid black;
+}
+
+#header a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+#header a {
+    text-decoration: none;
+    color: #9d9d9d;
+}
+
+.voxadmin {
+    font-size: 18px;
+    color:white;
+    text-decoration: none;
+}
+
+.logout {
+    float: right;
+    font-size: 14px;
+    padding-top: 5px;
+}
+
+
+#navigation{
+    width:15%;
+    height:100%;
+    background-color: #222222;
+    color: #9d9d9d;
+}
+
+ul.menu {
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+.menu li:active {
+    background-color: white;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #9d9d9d;
+    display: block;
+/*
+    background-color: #222222;
+*/
+    padding: 15px;
+}
+
+.menu a:hover {
+    color: white;
+/*
+    background-color: black;
+*/
+}

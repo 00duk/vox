@@ -1,0 +1,5 @@
+vox_admin:
+    resource: "@voxAdminBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
