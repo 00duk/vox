@@ -6,12 +6,12 @@
 
     <div id="header">
         <a class="voxadmin" href="{{ path('admin_index') }}">Vox Admin</a>
-        <a class="logout" href=""><i class="fa fa-power-off"></i> Logout</a>
+        <a class="logout" href="{{ path('logout') }}"><i class="fa fa-power-off"></i> Logout</a>
     </div>
 
     <div id="navigation">
         <ul class="menu">
-            <li><a href="{{ path('admin_index') }}"><i class="fa fa-dashboard"></i>  Dashboard</a></li>
+            <li {% if app.request.get('_route') ends with 'index' %} class="active"{% endif %}><a href="{{ path('admin_index') }}"><i class="fa fa-dashboard"></i>  Dashboard</a></li>
             <li><a href="{{ path('admin_visitors') }}"><i class="fa fa-users"></i> Visitors</a></li>
             <li><a href="">1</a></li>
             <li><a href="">1</a></li>

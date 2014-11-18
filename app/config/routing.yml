@@ -3,3 +3,13 @@ vox_admin:
     type:     annotation
     prefix:   /
 
+login:
+    pattern: /admin/login
+    defaults: {_controller: voxUserBundle:Security:login}
+
+login_check:
+    pattern: /login_check
+
+logout:
+    pattern: /logout
+
