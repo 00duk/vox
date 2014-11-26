@@ -2,17 +2,20 @@
 
 {% block body %}
 
+
 <div id="global">
 
     <div id="header">
-        <a class="voxadmin" href="{{ path('admin_index') }}">Vox Admin</a>
+        <a class="voxadmin" href="{{ path('admin_dashboard') }}">Vox Admin</a>
+
         <a class="logout" href="{{ path('fos_user_security_logout') }}"><i class="fa fa-power-off"></i> Logout</a>
     </div>
 
     <div id="navigation">
         <ul class="menu">
-            <li {% if app.request.get('_route') ends with 'index' %} class="active"{% endif %}><a href="{{ path('admin_index') }}"><i class="fa fa-dashboard"></i>  Dashboard</a></li>
-            <li><a href="{{ path('admin_visitors') }}"><i class="fa fa-users"></i> Visitors</a></li>
+            <li {% if app.request.get('_route') ends with 'admin_dashboard' %} class="active"{% endif %}><a href="{{ path('admin_dashboard') }}"><i class="fa fa-dashboard"></i>  Dashboard</a></li>
+            <li {% if app.request.get('_route') ends with 'release_index' %} class="active"{% endif %}><a href="{{ path('release_index') }}"><i class="glyphicon glyphicon-play-circle"></i> Releases</a></li>
+            <li {% if app.request.get('_route') ends with 'visitors' %} class="active"{% endif %}><a href="{{ path('admin_visitors') }}"><i class="fa fa-users"></i> Visitors</a></li>
             <li><a href="">1</a></li>
             <li><a href="">1</a></li>
         </ul>
@@ -20,6 +23,14 @@
     </div>
 
     <div id="content">
+        {% block content_title %}{% endblock %}
+        {% for message in app.session.flashbag.get('notice') %}
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <i class="fa fa-check"></i>
+
+            {{ message }}
+        </div>
+        {% endfor %}
         {% block content %}{% endblock %}
     </div>
 

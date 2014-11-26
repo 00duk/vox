@@ -9,10 +9,10 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class AdminController extends Controller
 {
     /**
-     * @Route("/admin/index", name="admin_index")
+     * @Route("/admin/dashboard", name="admin_dashboard")
      * @Template()
      */
-    public function indexAction()
+    public function dashboardAction()
     {
         return array('name' => '');
     }
@@ -22,6 +22,15 @@ class AdminController extends Controller
      * @Template()
      */
     public function visitorsAction()
+    {
+        return array('name' => '');
+    }
+
+    /**
+     * @Route("/admin/releases", name="release_index")
+     * @Template("voxAdminBundle:Admin:MusicRelease:release_index.html.twig")
+     */
+    public function release_indexAction()
     {
         return array('name' => '');
     }

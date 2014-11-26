@@ -1,0 +1,37 @@
+{% extends "voxAdminBundle:Admin:main.html.twig" %}
+
+{% block content %}
+
+
+    <a href="{{ path('release_add') }}">add</a> <br>
+
+
+    <table class="table table-striped">
+        <thead>
+            <th>Artist</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Date Added</th>
+            <th>Enabled</th>
+            <th>Delete</th>
+        </thead>
+        <tbody>
+
+            {% for release in listReleases %}
+            <tr>
+                 <td>{{ release.artist }}</td>
+                 <td>{{ release.title }}</td>
+                 <td>{{ release.description }}</td>
+                 <td>{{ release.dateAdded | date('Y-m-d') }}</td>
+                 <td>{{ release.enabled }}</td>
+                 <td><a href="{{ path('release_delete', {'id': release.id}) }}">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+
+
+
+{% endblock %}

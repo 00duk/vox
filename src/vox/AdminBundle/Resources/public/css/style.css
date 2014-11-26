@@ -81,5 +81,18 @@ li.active {
 #content {
     margin-left: 15%;
     position: relative;
+    padding: 20px;
 }
 
+h1 {
+    font-size: 22px;
+    border-bottom: 1px solid #EEEEEE;
+    margin-bottom: 40px;
+}
+
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+    background-color: #e0e0e0;
+}
+
+table {
+}
