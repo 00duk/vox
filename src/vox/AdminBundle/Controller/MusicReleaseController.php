@@ -49,6 +49,35 @@ class MusicReleaseController extends Controller
         return array('form' => $form->createView());
     }
 
+
+    /**
+     * @Route("/admin/edit_release/{id}", name="release_edit")
+     * @Template("")
+     */
+
+    public function release_editAction($id, Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository('voxAdminBundle:MusicRelease');
+
+        $release = $repository->find($id);
+
+        $form = $this->get('form.factory')->create(new MusicReleaseType(), $release);
+
+        if ($form->handleRequest($request)->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($release);
+            $em->flush();
+
+            $request->getSession()->getFlashBag()->add('notice', 'Release edited.');
+
+            return $this->redirect($this->generateUrl('release_index'));
+        }
+
+
+        return array('form' => $form->createView());
+    }
+
     /**
      * @Route("/admin/release_delete/{id}", name="release_delete")
      * @Template("")

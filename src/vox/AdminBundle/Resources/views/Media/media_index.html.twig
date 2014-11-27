@@ -1,0 +1,65 @@
+{% extends "voxAdminBundle:Admin:main.html.twig" %}
+
+{% block title %}Media{% endblock %}
+{% block content_title %}<h1>Social Media</h1>{% endblock %}
+
+{% block content %}
+
+
+    <div id="facebook_chart"  style="width:100%; height:300px;">
+
+    </div>
+
+
+    <div id="facebook_chart" style="height: 250px;"></div>
+
+
+
+
+
+
+{% endblock %}
+
+{% block javascript %}
+
+{{ parent() }}
+
+<script type="text/javascript">
+
+    $(function () {
+        $('#facebook_chart').highcharts({
+            chart: {
+                type: 'line'
+            },
+            title: {
+                text: 'Facebook likes'
+            },
+            xAxis: {
+                categories: {{ days | raw }},
+                text: 'Days'
+            },
+            yAxis: {
+                title: {
+                    text: 'Like count'
+                },
+                type: 'linear'
+
+            },
+            legend: {
+                enabled: false
+            },
+            credits:{
+                enabled: false
+            },
+            series: [
+            {
+                yAxis: 0,
+                data: {{ likes | raw }}
+            }]
+        });
+    });
+
+</script>
+
+
+{% endblock %}

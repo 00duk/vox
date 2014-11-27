@@ -22,13 +22,16 @@
 
 {% endblock %}
 
+{% block javascript %}
+    {% javascripts
+    'bundles/voxadmin/js/jquery.js'
+    '@voxAdminBundle/Resources/public/js/functions.js'
+    'bundles/voxadmin/js/bootstrap.min.js'
+    'bundles/voxadmin/js/highcharts.js'%}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
 
-{% javascripts
-'bundles/voxadmin/js/jquery.js'
-'@voxAdminBundle/Resources/public/js/functions.js'
-'bundles/voxadmin/js/bootstrap.min.js'%}
-<script type="text/javascript" src="{{ asset_url }}"></script>
-{% endjavascripts %}
+{% endblock %}
 
 </body>
 </html>

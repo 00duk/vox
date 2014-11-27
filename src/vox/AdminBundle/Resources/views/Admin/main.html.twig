@@ -15,9 +15,8 @@
         <ul class="menu">
             <li {% if app.request.get('_route') ends with 'admin_dashboard' %} class="active"{% endif %}><a href="{{ path('admin_dashboard') }}"><i class="fa fa-dashboard"></i>  Dashboard</a></li>
             <li {% if app.request.get('_route') ends with 'release_index' %} class="active"{% endif %}><a href="{{ path('release_index') }}"><i class="glyphicon glyphicon-play-circle"></i> Releases</a></li>
+            <li {% if app.request.get('_route') ends with 'media_index' %} class="active"{% endif %}><a href="{{ path('admin_media') }}"><i class="fa fa-share-alt-square"></i> Social Media</a></li>
             <li {% if app.request.get('_route') ends with 'visitors' %} class="active"{% endif %}><a href="{{ path('admin_visitors') }}"><i class="fa fa-users"></i> Visitors</a></li>
-            <li><a href="">1</a></li>
-            <li><a href="">1</a></li>
         </ul>
 
     </div>
@@ -26,6 +25,7 @@
         {% block content_title %}{% endblock %}
         {% for message in app.session.flashbag.get('notice') %}
         <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
             <i class="fa fa-check"></i>
 
             {{ message }}
