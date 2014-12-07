@@ -36,6 +36,14 @@ class Image
      */
     private $alt;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="filename", type="string", length=255)
+     */
+
+    private $filename;
+
 
     private $file;
 
@@ -104,6 +112,28 @@ class Image
     }
 
 
+    /**
+     * Set filename
+     *
+     * @param string $filename
+     * @return Image
+     */
+    public function setFilename($filename)
+    {
+        $this->filename = $filename;
+
+        return $this;
+    }
+
+    /**
+     * Get filename
+     *
+     * @return string
+     */
+    public function getFilename()
+    {
+        return $this->filename;
+    }
 
 
     public function setFile(UploadedFile $file)
@@ -138,6 +168,8 @@ class Image
 
         // Et on génère l'attribut alt de la balise <img>, à la valeur du nom du fichier sur le PC de l'internaute
         $this->alt = $this->file->getClientOriginalName();
+
+        $this->filename = $this->file->getClientOriginalName() . "-" . uniqid();
     }
 
     /**
@@ -158,6 +190,7 @@ class Image
                 unlink($oldFile);
             }
         }
+
 
         // On déplace le fichier envoyé dans le répertoire de notre choix
         $this->file->move(
@@ -189,13 +222,11 @@ class Image
 
     public function getUploadDir()
     {
-        // On retourne le chemin relatif vers l'image pour un navigateur
         return 'uploads/img';
     }
 
     protected function getUploadRootDir()
     {
-        // On retourne le chemin relatif vers l'image pour notre code PHP
         return __DIR__.'/../../../../web/'.$this->getUploadDir();
     }
 
