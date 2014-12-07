@@ -22,15 +22,34 @@ class MediaController extends Controller
 
         foreach($facebookStats as $stat)
         {
-            $days[] = $stat->getDate()->format('d M');
-            $likes[] = $stat->getLikes();
+            $facebook['days'][]  = $stat->getDate()->format('d M');
+            $facebook['likes'][]  = $stat->getLikes();
         }
 
-        $days = json_encode($days);
-        $likes = json_encode($likes);
+        $repository = $em->getRepository('voxAdminBundle:YoutubeStats');
+        $youtubeStats = $repository->findAll();
 
-        return array('days' => $days, 'likes' => $likes);
+        foreach($youtubeStats as $stat)
+        {
+            $youtube['days'][]  = $stat->getDate()->format('d M');
+            $youtube['subs'][]  = $stat->getSubs();
+            $youtube['total_views'][]  = $stat->getTotalViews();
+        }
+
+        $repository = $em->getRepository('voxAdminBundle:SoundCloudStats');
+        $soundcloudStats = $repository->findAll();
+
+        foreach($soundcloudStats as $stat)
+        {
+            $soundcloud['days'][]  = $stat->getDate()->format('d M');
+            $soundcloud['followers'][]  = $stat->getFollowers();
+        }
+
+        return array('facebook' => $facebook, 'youtube' => $youtube, 'soundcloud' => $soundcloud);
     }
+
+
+
 
 
 }

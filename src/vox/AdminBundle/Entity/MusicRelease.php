@@ -64,6 +64,12 @@ class MusicRelease
     private $enabled;
 
     /**
+     * @ORM\OneToOne(targetEntity="vox\AdminBundle\Entity\Image", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $image;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="image_1", type="string", length=255)
@@ -254,12 +260,26 @@ class MusicRelease
     /**
      * Get image1
      *
-     * @return string 
+     * @return string
      */
     public function getImage1()
     {
         return $this->image1;
     }
+
+
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+
+    public function setImage(Image $image = null)
+    {
+        $this->image = $image;
+    }
+
+
 
     /**
      * Set image2
@@ -306,4 +326,6 @@ class MusicRelease
     {
         return $this->image3;
     }
+
+
 }

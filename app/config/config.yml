@@ -76,3 +76,10 @@ fos_user:
     db_driver:     orm                       # Le type de BDD à utiliser, nous utilisons l'ORM Doctrine depuis le début
     firewall_name: admin                      # Le nom du firewall derrière lequel on utilisera ces utilisateurs
     user_class:    vox\UserBundle\Entity\User # La classe de l'entité User que nous utilisons
+
+webfactory_piwik:
+    site_id: 1
+    disabled: false
+    piwik_host: http://localhost/vox/
+    tracker_path: "/js/"
+

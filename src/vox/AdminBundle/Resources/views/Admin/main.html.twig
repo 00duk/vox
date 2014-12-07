@@ -14,9 +14,12 @@
     <div id="navigation">
         <ul class="menu">
             <li {% if app.request.get('_route') ends with 'admin_dashboard' %} class="active"{% endif %}><a href="{{ path('admin_dashboard') }}"><i class="fa fa-dashboard"></i>  Dashboard</a></li>
+            <li {% if app.request.get('_route') ends with 'admin_news' %} class="active"{% endif %}><a href="{{ path('admin_dashboard') }}"><i class="fa fa-pencil-square-o"></i>  News</a></li>
+            <li {% if app.request.get('_route') ends with 'artist_index' %} class="active"{% endif %}><a href="{{ path('artist_index') }}"><i class="fa fa-users"></i> Artists</a></li>
             <li {% if app.request.get('_route') ends with 'release_index' %} class="active"{% endif %}><a href="{{ path('release_index') }}"><i class="glyphicon glyphicon-play-circle"></i> Releases</a></li>
-            <li {% if app.request.get('_route') ends with 'media_index' %} class="active"{% endif %}><a href="{{ path('admin_media') }}"><i class="fa fa-share-alt-square"></i> Social Media</a></li>
-            <li {% if app.request.get('_route') ends with 'visitors' %} class="active"{% endif %}><a href="{{ path('admin_visitors') }}"><i class="fa fa-users"></i> Visitors</a></li>
+            <li {% if app.request.get('_route') ends with 'newsletter' %} class="active"{% endif %}><a href="{{ path('admin_dashboard') }}"><i class="fa fa-envelope-o"></i> Newsletter</a></li>
+            <li {% if app.request.get('_route') ends with 'media' %} class="active"{% endif %}><a href="{{ path('admin_media') }}"><i class="fa fa-share-alt-square"></i> Social Media</a></li>
+            <li {% if app.request.get('_route') ends with 'traffic_index' %} class="active"{% endif %}><a href="{{ path('traffic_index') }}"><i class="fa fa-bar-chart"></i> Traffic</a></li>
         </ul>
 
     </div>

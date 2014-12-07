@@ -1,0 +1,42 @@
+{% extends "voxAdminBundle:Admin:main.html.twig" %}
+
+{% block title %}Artists{% endblock %}
+{% block content_title %}<h1>Artists</h1>{% endblock %}
+
+{% block content %}
+
+
+  {#  <a class="btn btn-default" href="{{ path('release_add') }}"><i class="fa fa-plus"></i> New Release</a> <br>
+
+
+    <table class="table table-striped">
+        <thead>
+        <th>Artist</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Date Added</th>
+        <th>Enabled</th>
+        <th>Delete</th>
+        <th>Edit</th>
+        </thead>
+        <tbody>
+
+        {% for release in listReleases %}
+            <tr>
+                <td>{{ release.artist }}</td>
+                <td>{{ release.title }}</td>
+                <td>{{ release.description }}</td>
+                <td>{{ release.dateAdded | date('Y-m-d') }}</td>
+                <td>{{ release.enabled }}</td>
+                <td><a href="{{ path('release_delete', {'id': release.id}) }}">Delete</a></td>
+                <td><a href="{{ path('release_edit', {'id': release.id}) }}">Edit</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>#}
+
+
+
+
+
+{% endblock %}

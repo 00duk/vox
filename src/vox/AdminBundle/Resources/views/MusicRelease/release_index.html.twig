@@ -5,12 +5,15 @@
 
 {% block content %}
 
+    {#{{ dump(listReleases) }}#}
 
-    <a class="btn btn-default" href="{{ path('release_add') }}">New Release</a> <br>
+
+    <a class="btn btn-default" href="{{ path('release_add') }}"><i class="fa fa-plus"></i> New Release</a> <br>
 
 
     <table class="table table-striped">
         <thead>
+            <th>Cover</th>
             <th>Artist</th>
             <th>Title</th>
             <th>Description</th>
@@ -23,6 +26,7 @@
 
             {% for release in listReleases %}
             <tr>
+                 <td><img height="100" width="100" src="{{ asset(release.image.webPath) }}" alt="{{ release.image.alt }}"/></td>
                  <td>{{ release.artist }}</td>
                  <td>{{ release.title }}</td>
                  <td>{{ release.description }}</td>

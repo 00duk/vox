@@ -5,13 +5,18 @@
 
 {% block content %}
 
-
-    <div id="facebook_chart"  style="width:100%; height:300px;">
-
-    </div>
+{#{{ dump(soundcloud)}}#}
 
 
+
+    <h2><i class="fa fa-facebook"></i> <a target="_blank" href="https://www.facebook.com/voxpopulirecords">Facebook</a></h2>
     <div id="facebook_chart" style="height: 250px;"></div>
+
+    <h2><i class="fa fa-soundcloud"></i> <a target="_blank" href="https://soundcloud.com/voxpopuli-records">Soundcloud</a></h2>
+    <div id="soundcloud_chart" style="height: 250px;"></div>
+
+    <h2><i class="fa fa-youtube"></i> <a target="_blank" href="https://www.youtube.com/user/v0xpopulirecords/feed">Youtube</a></h2>
+    <div id="youtube_chart" style="height: 250px;"></div>
 
 
 
@@ -26,23 +31,26 @@
 
 <script type="text/javascript">
 
+
+    //facebook
     $(function () {
         $('#facebook_chart').highcharts({
             chart: {
                 type: 'line'
             },
             title: {
-                text: 'Facebook likes'
+                text: ''
             },
             xAxis: {
-                categories: {{ days | raw }},
+                categories: {{ facebook.days | json_encode | raw}},
                 text: 'Days'
             },
             yAxis: {
                 title: {
                     text: 'Like count'
                 },
-                type: 'linear'
+                type: 'linear',
+                min : 0
 
             },
             legend: {
@@ -54,8 +62,97 @@
             series: [
             {
                 yAxis: 0,
-                data: {{ likes | raw }}
+                data: {{ facebook.likes | json_encode | raw }},
+                name: "Likes"
             }]
+        });
+    });
+
+
+
+
+    //soundcloud
+    $(function () {
+        $('#soundcloud_chart').highcharts({
+            chart: {
+                type: 'line'
+            },
+            title: {
+                text: ''
+            },
+            xAxis: {
+                categories: {{ soundcloud.days | json_encode | raw}},
+                text: 'Days'
+            },
+            yAxis: {
+                title: {
+                    text: 'Follower count'
+                },
+                type: 'linear',
+                min : 0
+
+            },
+            legend: {
+                enabled: false
+            },
+            credits:{
+                enabled: false
+            },
+            series: [
+                {
+                    yAxis: 0,
+                    data: {{ soundcloud.followers | json_encode | raw }},
+                    name: "Followers",
+                    color: "orange"
+                }
+            ]
+        });
+    });
+
+
+
+
+    //youtube
+    $(function () {
+        $('#youtube_chart').highcharts({
+            chart: {
+                type: 'line'
+            },
+            title: {
+                text: ''
+            },
+            xAxis: {
+                categories: {{ youtube.days | json_encode | raw}},
+                text: 'Days'
+            },
+            yAxis: {
+                title: {
+                    text: 'Sub count'
+                },
+                type: 'linear',
+                min : 0
+
+            },
+            legend: {
+                enabled: false
+            },
+            credits:{
+                enabled: false
+            },
+            series: [
+                {
+                    yAxis: 0,
+                    data: {{ youtube.subs | json_encode | raw }},
+                    name: "Subscribers",
+                    color: "#CB2027"
+                }
+                /*,{
+                    total_views: 0,
+                    data: {{ youtube.total_views | json_encode | raw }},
+                    name: "Total views",
+                    color: "red"
+                }*/
+            ]
         });
     });
 

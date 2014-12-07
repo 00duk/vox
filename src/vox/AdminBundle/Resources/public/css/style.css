@@ -1,6 +1,8 @@
 html, body{
     height:100%;
     width: 100%;
+
+    background-color: #222222;
 }
 
 #global {
@@ -82,6 +84,8 @@ li.active {
     margin-left: 15%;
     position: relative;
     padding: 20px;
+    background: white;
+    min-height: 100%;
 }
 
 h1 {

@@ -13,4 +13,13 @@
         </service>
     </services>
     -->
+
+    <services>
+        <service id="media_update" class="vox\AdminBundle\Media\MediaUpdate">
+            <!--<argument type="service" id="service_id" />-->
+            <argument>@doctrine.orm.entity_manager</argument>
+        </service>
+    </services>
+
+
 </container>

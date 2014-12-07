@@ -36,6 +36,7 @@ class MusicReleaseController extends Controller
         $form = $this->get('form.factory')->create(new MusicReleaseType(), $music_release);
 
         if ($form->handleRequest($request)->isValid()) {
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($music_release);
             $em->flush();

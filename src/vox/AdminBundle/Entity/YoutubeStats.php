@@ -5,12 +5,12 @@ namespace vox\AdminBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * FacebookStats
+ * YoutubeStats
  *
  * @ORM\Table()
  * @ORM\Entity
  */
-class FacebookStats
+class YoutubeStats
 {
     /**
      * @var integer
@@ -24,9 +24,16 @@ class FacebookStats
     /**
      * @var integer
      *
-     * @ORM\Column(name="likes", type="integer")
+     * @ORM\Column(name="subs", type="integer")
      */
-    private $likes;
+    private $subs;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="total_views", type="integer")
+     */
+    private $totalViews;
 
     /**
      * @var \DateTime
@@ -47,33 +54,56 @@ class FacebookStats
     }
 
     /**
-     * Set likes
+     * Set subs
      *
-     * @param integer $likes
-     * @return FacebookStats
+     * @param integer $subs
+     * @return YoutubeStats
      */
-    public function setLikes($likes)
+    public function setSubs($subs)
     {
-        $this->likes = $likes;
+        $this->subs = $subs;
 
         return $this;
     }
 
     /**
-     * Get likes
+     * Get subs
      *
      * @return integer 
      */
-    public function getLikes()
+    public function getSubs()
     {
-        return $this->likes;
+        return $this->subs;
+    }
+
+    /**
+     * Set totalViews
+     *
+     * @param integer $totalViews
+     * @return YoutubeStats
+     */
+    public function setTotalViews($totalViews)
+    {
+        $this->totalViews = $totalViews;
+
+        return $this;
+    }
+
+    /**
+     * Get totalViews
+     *
+     * @return integer 
+     */
+    public function getTotalViews()
+    {
+        return $this->totalViews;
     }
 
     /**
      * Set date
      *
      * @param \DateTime $date
-     * @return FacebookStats
+     * @return YoutubeStats
      */
     public function setDate($date)
     {
@@ -85,7 +115,7 @@ class FacebookStats
     /**
      * Get date
      *
-     * @return \DateTime
+     * @return \DateTime 
      */
     public function getDate()
     {

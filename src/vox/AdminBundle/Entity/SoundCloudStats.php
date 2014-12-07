@@ -5,12 +5,12 @@ namespace vox\AdminBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * FacebookStats
+ * SoundCloudStats
  *
  * @ORM\Table()
  * @ORM\Entity
  */
-class FacebookStats
+class SoundCloudStats
 {
     /**
      * @var integer
@@ -24,9 +24,9 @@ class FacebookStats
     /**
      * @var integer
      *
-     * @ORM\Column(name="likes", type="integer")
+     * @ORM\Column(name="followers", type="integer")
      */
-    private $likes;
+    private $followers;
 
     /**
      * @var \DateTime
@@ -47,33 +47,33 @@ class FacebookStats
     }
 
     /**
-     * Set likes
+     * Set followers
      *
-     * @param integer $likes
-     * @return FacebookStats
+     * @param integer $followers
+     * @return SoundCloudStats
      */
-    public function setLikes($likes)
+    public function setFollowers($followers)
     {
-        $this->likes = $likes;
+        $this->followers = $followers;
 
         return $this;
     }
 
     /**
-     * Get likes
+     * Get followers
      *
      * @return integer 
      */
-    public function getLikes()
+    public function getFollowers()
     {
-        return $this->likes;
+        return $this->followers;
     }
 
     /**
      * Set date
      *
      * @param \DateTime $date
-     * @return FacebookStats
+     * @return SoundCloudStats
      */
     public function setDate($date)
     {
@@ -85,7 +85,7 @@ class FacebookStats
     /**
      * Get date
      *
-     * @return \DateTime
+     * @return \DateTime 
      */
     public function getDate()
     {
