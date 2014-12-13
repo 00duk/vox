@@ -36,9 +36,8 @@ class Artist
     private $bio;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="image", type="string", length=255)
+     * @ORM\OneToOne(targetEntity="vox\AdminBundle\Entity\Image", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
      */
     private $image;
 
@@ -50,6 +49,10 @@ class Artist
     private $dateAdded;
 
 
+    public function __construct() {
+        $this->dateAdded = new \DateTime();
+    }
+
     /**
      * Get id
      *
@@ -59,6 +62,10 @@ class Artist
     {
         return $this->id;
     }
+
+
+
+
 
     /**
      * Set name
@@ -106,27 +113,15 @@ class Artist
         return $this->bio;
     }
 
-    /**
-     * Set image
-     *
-     * @param string $image
-     * @return Artist
-     */
-    public function setImage($image)
-    {
-        $this->image = $image;
-
-        return $this;
-    }
-
-    /**
-     * Get image
-     *
-     * @return string 
-     */
     public function getImage()
     {
         return $this->image;
+    }
+
+
+    public function setImage(Image $image = null)
+    {
+        $this->image = $image;
     }
 
     /**

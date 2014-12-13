@@ -26,8 +26,10 @@
 
             {% for release in listReleases %}
             <tr>
-                 <td><img height="50" width="50" src="{{ asset(release.image.webPath) }}" alt="{{ release.image.alt }}"/></td>
-                 <td>{{ release.artist }}</td>
+                 <td>
+                     {% if release.image.webPath is defined %}<img height="50" width="50" src="{{ asset(release.image.webPath) }}" alt="{{ release.title }}"/>{% endif %}
+                 </td>
+                 <td>{{ release.artistName }}</td>
                  <td>{{ release.title }}</td>
                  <td>{{ release.description }}</td>
                  <td>{{ release.dateAdded | date('Y-m-d') }}</td>

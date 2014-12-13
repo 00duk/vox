@@ -9,10 +9,12 @@
 
     {{ form_start(form) }}
 
+
     <div class="form-group">
         <label>Artist: </label>
         {{ form_widget(form.artist) }}
     </div>
+
     <div class="form-group">
         <label>Title: </label>
         {{ form_widget(form.title) }}
@@ -25,39 +27,42 @@
         <label>Description: </label>
         {{ form_widget(form.description) }}
     </div>
-    {#<div class="form-group">
-        <label>Description: </label>
-        {{ form_widget(form.image_1) }}
-    </div>
-    <div class="form-group">
-        <label>Description: </label>
-        {{ form_widget(form.image_2) }}
-    </div>
-    <div class="form-group">
-        <label>Description: </label>
-        {{ form_widget(form.image_3) }}
-    </div>#}
+
+
 
     <div class="form-group">
         <label>Enable:
             {{ form_widget(form.enabled) }}
         </label>
     </div>
+
+    <img height="100" width="100" id="img" src="#" alt="" style="display: none;"/>
+
+    <div class="form-group">
+        <label>
+            {{ form_widget(form.image) }}
+        </label>
+    </div>
+
+
+
+
     {{ form_widget(form.save) }}
     {{ form_end(form) }}
 
-    {#<div class="form-group">
-        <label for="exampleInputFile">File input</label>
-        <input type="file" id="exampleInputFile">
 
-        <p class="help-block">Example block-level help text here.</p>
-    </div>
-    <div class="checkbox">
-        <label>
-            <input type="checkbox" checked> Check me out
-        </label>
-    </div>
-    <button type="submit" class="btn btn-default">Submit</button>#}
+{% endblock %}
+
+
+{% block javascript %}
+
+{{ parent() }}
+
+{% javascripts
+'@voxAdminBundle/Resources/public/js/file-loader.js'
+%}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
 
 
 {% endblock %}

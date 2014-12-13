@@ -1,40 +1,23 @@
 {% extends "voxAdminBundle:Admin:main.html.twig" %}
 
-{% block title %}Edit Release{% endblock %}
-{% block content_title %}<h1>Edit Release</h1>{% endblock %}
+{% block title %}Edit Artist{% endblock %}
+{% block content_title %}<h1>Edit Artist</h1>{% endblock %}
 
 {% block content %}
 
     {#{{ form(form) }}#}
 
-
     {{ form_start(form) }}
 
-
     <div class="form-group">
-        <label>Artist: </label>
-        {{ form_widget(form.artist) }}
+        <label>Name: </label>
+        {{ form_widget(form.name) }}
+    </div>
+    <div class="form-group">
+        <label>Bio: </label>
+        {{ form_widget(form.bio) }}
     </div>
 
-    <div class="form-group">
-        <label>Title: </label>
-        {{ form_widget(form.title) }}
-    </div>
-    <div class="form-group">
-        <label>Tracklist: </label>
-        {{ form_widget(form.tracklist) }}
-    </div>
-    <div class="form-group">
-        <label>Description: </label>
-        {{ form_widget(form.description) }}
-    </div>
-
-
-    <div class="form-group">
-        <label>Enable:
-            {{ form_widget(form.enabled) }}
-        </label>
-    </div>
     <img height="100" width="100" id="img" src="#" alt="" style="display: none;"/>
 
     {% if img.webPath is defined %}<img id="img-old" height="100" width="100" src="{{ asset(img.webPath) }}" alt=""/>{% endif %}
@@ -45,13 +28,12 @@
             {{ form_widget(form.image) }}
         </label>
     </div>
+
     {{ form_widget(form.save) }}
     {{ form_end(form) }}
 
 
 {% endblock %}
-
-
 
 {% block javascript %}
 

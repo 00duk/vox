@@ -38,6 +38,7 @@ class MusicReleaseController extends Controller
         if ($form->handleRequest($request)->isValid()) {
 
             $em = $this->getDoctrine()->getManager();
+            $music_release->setArtistName($form->get('artist')->getData()->getName());
             $em->persist($music_release);
             $em->flush();
 
@@ -67,6 +68,7 @@ class MusicReleaseController extends Controller
 
         if ($form->handleRequest($request)->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $release->setArtistName($form->get('artist')->getData()->getName());
             $em->persist($release);
             $em->flush();
 
@@ -76,7 +78,7 @@ class MusicReleaseController extends Controller
         }
 
 
-        return array('form' => $form->createView());
+        return array('form' => $form->createView(), 'img' => $release->getImage());
     }
 
     /**

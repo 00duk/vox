@@ -10,18 +10,21 @@ class MusicReleaseType extends AbstractType {
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+
         $builder
-            ->add('artist',      'text', array('attr' => array('class' => 'form-control')))
-            ->add('title',     'text', array('attr' => array('class' => 'form-control')))
+            /*->add('artist_name',      'text', array('attr' => array('class' => 'form-control', 'autocomplete' => 'off')))*/
+            ->add('title',     'text', array('attr' => array('class' => 'form-control', 'autocomplete' => 'off')))
             ->add('tracklist',    'textarea', array('attr' => array('class' => 'form-control')))
             ->add('description',   'textarea', array('attr' => array('class' => 'form-control')))
-            ->add('image', new ImageType())
-            #->add('date_added',   'datetime', array('attr' => array('class' => 'form-control')))
-            #->add('image_1',      'text', array('required' => false, 'attr' => array('class' => 'form-control')))
-            #->add('image_1',      'text', array('required' => false, 'attr' => array('class' => 'form-control')))
-            #->add('image_2',      'text', array('required' => false, 'attr' => array('class' => 'form-control')))
-            #->add('image_3',      'text', array('required' => false, 'attr' => array('class' => 'form-control')))
+            ->add('image', new ImageType(), array('required' => false))
             ->add('enabled', 'checkbox', array('required' => false, 'attr' => array('checked' => 'checked')))
+            ->add('artist', 'entity', array(
+                    'empty_value' => 'Select Artist',
+                    'class'=>'vox\AdminBundle\Entity\Artist',
+                    'property'=>'name',
+                    'attr' => array('class' => 'form-control')
+                )
+            )
             ->add('save',      'submit', array('attr' => array('class' => 'btn btn-default')))
         ;
     }
@@ -35,7 +38,7 @@ class MusicReleaseType extends AbstractType {
 
     public function getName()
     {
-        return 'vox_';
+        return 'vox_musicrelease_form';
     }
 
 } 

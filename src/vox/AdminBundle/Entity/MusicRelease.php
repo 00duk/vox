@@ -5,7 +5,7 @@ namespace vox\AdminBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * ReleaseEntity
+ * MusicReleaseEntity
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="vox\AdminBundle\Entity\MusicReleaseRepository")
@@ -22,11 +22,22 @@ class MusicRelease
     private $id;
 
     /**
+     * @ORM\ManyToOne(targetEntity="vox\AdminBundle\Entity\Artist")
+     * @ORM\JoinColumn(nullable=true)
+     */
+
+    private $artist = null;
+
+
+
+
+    /**
      * @var string
      *
-     * @ORM\Column(name="artist", type="string", length=255)
+     * @ORM\Column(name="artist_name", type="string", length=255)
      */
-    private $artist;
+
+    private $artist_name;
 
     /**
      * @var string
@@ -65,30 +76,10 @@ class MusicRelease
 
     /**
      * @ORM\OneToOne(targetEntity="vox\AdminBundle\Entity\Image", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
-    private $image;
+    private $image = null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="image_1", type="string", length=255)
-     */
-    private $image1 = "";
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="image_2", type="string", length=255)
-     */
-    private $image2 = "";
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="image_3", type="string", length=255)
-     */
-    private $image3 = "";
 
 
     public function __construct() {
@@ -107,23 +98,39 @@ class MusicRelease
     }
 
     /**
-     * Set artist
+     * Set artist_name
      *
-     * @param string $artist
+     * @param string $artist_name
      * @return ReleaseEntity
      */
-    public function setArtist($artist)
+    public function setArtistName($artist_name)
+    {
+        $this->artist_name = $artist_name;
+
+        return $this;
+    }
+
+    /**
+     * Get artist_name
+     *
+     * @return string
+     */
+
+
+    public function getArtistName()
+    {
+        return $this->artist_name;
+    }
+
+
+    public function setArtist(Artist $artist = null)
     {
         $this->artist = $artist;
 
         return $this;
     }
 
-    /**
-     * Get artist
-     *
-     * @return string 
-     */
+
     public function getArtist()
     {
         return $this->artist;
@@ -244,28 +251,6 @@ class MusicRelease
         return $this->enabled;
     }
 
-    /**
-     * Set image1
-     *
-     * @param string $image1
-     * @return ReleaseEntity
-     */
-    public function setImage1($image1)
-    {
-        $this->image1 = $image1;
-
-        return $this;
-    }
-
-    /**
-     * Get image1
-     *
-     * @return string
-     */
-    public function getImage1()
-    {
-        return $this->image1;
-    }
 
 
     public function getImage()
@@ -279,53 +264,6 @@ class MusicRelease
         $this->image = $image;
     }
 
-
-
-    /**
-     * Set image2
-     *
-     * @param string $image2
-     * @return ReleaseEntity
-     */
-    public function setImage2($image2)
-    {
-        $this->image2 = $image2;
-
-        return $this;
-    }
-
-    /**
-     * Get image2
-     *
-     * @return string 
-     */
-    public function getImage2()
-    {
-        return $this->image2;
-    }
-
-    /**
-     * Set image3
-     *
-     * @param string $image3
-     * @return ReleaseEntity
-     */
-    public function setImage3($image3)
-    {
-        $this->image3 = $image3;
-
-        return $this;
-    }
-
-    /**
-     * Get image3
-     *
-     * @return string 
-     */
-    public function getImage3()
-    {
-        return $this->image3;
-    }
 
 
 }

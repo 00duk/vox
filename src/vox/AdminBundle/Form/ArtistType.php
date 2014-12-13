@@ -15,10 +15,10 @@ class ArtistType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('bio')
-            ->add('image')
-            ->add('dateAdded')
+            ->add('name', 'text', array('attr' => array('class' => 'form-control', 'autocomplete' => 'off')))
+            ->add('bio', 'textarea', array('attr' => array('class' => 'form-control')))
+            ->add('image', new ImageType())
+            ->add('save',      'submit', array('attr' => array('class' => 'btn btn-default')))
         ;
     }
     

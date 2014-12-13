@@ -6,34 +6,34 @@
 {% block content %}
 
 
-  {#  <a class="btn btn-default" href="{{ path('release_add') }}"><i class="fa fa-plus"></i> New Release</a> <br>
+    <a class="btn btn-default" href="{{ path('artist_add') }}"><i class="fa fa-plus"></i> New Artist</a> <br>
 
 
     <table class="table table-striped">
         <thead>
-        <th>Artist</th>
-        <th>Title</th>
-        <th>Description</th>
+        <th>Pic</th>
+        <th>Name</th>
+        <th>Bio</th>
         <th>Date Added</th>
-        <th>Enabled</th>
         <th>Delete</th>
         <th>Edit</th>
         </thead>
         <tbody>
 
-        {% for release in listReleases %}
+        {% for artist in listArtists %}
             <tr>
-                <td>{{ release.artist }}</td>
-                <td>{{ release.title }}</td>
-                <td>{{ release.description }}</td>
-                <td>{{ release.dateAdded | date('Y-m-d') }}</td>
-                <td>{{ release.enabled }}</td>
-                <td><a href="{{ path('release_delete', {'id': release.id}) }}">Delete</a></td>
-                <td><a href="{{ path('release_edit', {'id': release.id}) }}">Edit</a></td>
+                <td>
+                    {% if artist.image.webPath is defined %}<img height="50" width="50" src="{{ asset(artist.image.webPath) }}" alt="{{ artist.name }}"/>{% endif %}
+                </td>
+                <td>{{ artist.name }}</td>
+                <td>{{ artist.bio }}</td>
+                <td>{{ artist.dateAdded | date('Y-m-d') }}</td>
+                <td><a href="{{ path('artist_delete', {'id': artist.id}) }}">Delete</a></td>
+                <td><a href="{{ path('artist_edit', {'id': artist.id}) }}">Edit</a></td>
             </tr>
         {% endfor %}
         </tbody>
-    </table>#}
+    </table>
 
 
 
