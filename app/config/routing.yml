@@ -1,3 +1,8 @@
+vox_front:
+    resource: "@voxFrontBundle/Controller"
+    type:     annotation
+    prefix:   /
+
 vox_admin:
     resource: "@voxAdminBundle/Controller/"
     type:     annotation

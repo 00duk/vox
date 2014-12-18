@@ -8,9 +8,10 @@
     {% stylesheets filter='cssrewrite'
     'bundles/voxadmin/css/bootstrap.min.css'
     'bundles/voxadmin/css/bootstrap-theme.min.css'
-    '@voxAdminBundle/Resources/public/css/style.less'
+    '@voxFrontBundle/Resources/public/css/style.less'
+    'http://fonts.googleapis.com/css?family=Exo'
     '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'%}
-         <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
     {% endstylesheets %}
 
 </head>
@@ -25,10 +26,8 @@
 {% block javascript %}
     {% javascripts
     'bundles/voxadmin/js/jquery.js'
-    '@voxAdminBundle/Resources/public/js/functions.js'
-    'bundles/voxadmin/js/bootstrap.min.js'
     'bundles/voxadmin/js/less.min.js'
-    'bundles/voxadmin/js/highcharts.js'%}
+    'bundles/voxadmin/js/bootstrap.min.js'%}
     <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
 

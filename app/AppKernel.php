@@ -19,7 +19,8 @@ class AppKernel extends Kernel
             new vox\AdminBundle\voxAdminBundle(),
             new vox\UserBundle\voxUserBundle(),
             new FOS\UserBundle\FOSUserBundle(),
-            new Webfactory\Bundle\PiwikBundle\WebfactoryPiwikBundle(),
+            new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
+            new vox\FrontBundle\voxFrontBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

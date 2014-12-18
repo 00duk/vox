@@ -10,6 +10,7 @@ class AdminController extends Controller
 {
     /**
      * @Route("/admin/dashboard", name="admin_dashboard")
+     * @Route("/admin/", name="admin")
      * @Template()
      */
     public function dashboardAction()
@@ -26,12 +27,5 @@ class AdminController extends Controller
         return array('name' => '');
     }
 
-    /**
-     * @Route("/admin/releases", name="release_index")
-     * @Template("voxAdminBundle:Admin:MusicRelease:release_index.html.twig")
-     */
-    public function release_indexAction()
-    {
-        return array('name' => '');
-    }
+
 }

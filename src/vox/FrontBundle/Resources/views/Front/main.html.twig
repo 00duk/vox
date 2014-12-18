@@ -1,0 +1,37 @@
+{% extends "voxFrontBundle::base.html.twig" %}
+
+{% block body %}
+
+
+<div id="global">
+
+    <div id="header">
+        Vox
+    </div>
+
+    <div id="navigation">
+        <ul>
+            <li><a href="{{ path('front_home') }}">Home</a></li>
+            <li><a href="{{ path('front_release_index') }}">Releases</a></li>
+            <li><a href="">Artists</a></li>
+        </ul>
+    </div>
+
+    <div id="content">
+        {% block content_title %}{% endblock %}
+        {% for message in app.session.flashbag.get('notice') %}
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <i class="fa fa-check"></i>
+
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% block content %}{% endblock %}
+    </div>
+
+
+    <div id="footer"></div>
+</div>
+
+{% endblock %}

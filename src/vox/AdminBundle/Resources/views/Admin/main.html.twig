@@ -14,7 +14,7 @@
     <div id="navigation">
         <ul class="menu">
             <li {% if app.request.get('_route') ends with 'admin_dashboard' %} class="active"{% endif %}><a href="{{ path('admin_dashboard') }}"><i class="fa fa-dashboard"></i>  Dashboard</a></li>
-            <li {% if app.request.get('_route') ends with 'admin_news' %} class="active"{% endif %}><a href="{{ path('admin_dashboard') }}"><i class="fa fa-pencil-square-o"></i>  News</a></li>
+            <li {% if app.request.get('_route') ends with 'admin_news' %} class="active"{% endif %}><a href="{{ path('news_index') }}"><i class="fa fa-pencil-square-o"></i>  News</a></li>
             <li {% if app.request.get('_route') ends with 'artist_index' %} class="active"{% endif %}><a href="{{ path('artist_index') }}"><i class="fa fa-users"></i> Artists</a></li>
             <li {% if app.request.get('_route') ends with 'release_index' %} class="active"{% endif %}><a href="{{ path('release_index') }}"><i class="glyphicon glyphicon-play-circle"></i> Releases</a></li>
             <li {% if app.request.get('_route') ends with 'newsletter' %} class="active"{% endif %}><a href="{{ path('admin_dashboard') }}"><i class="fa fa-envelope-o"></i> Newsletter</a></li>

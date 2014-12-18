@@ -1,0 +1,41 @@
+{% extends "voxAdminBundle:Admin:main.html.twig" %}
+
+{% block title %}News{% endblock %}
+{% block content_title %}<h1>News</h1>{% endblock %}
+
+{% block content %}
+
+    {#{{ dump(listReleases) }}#}
+
+
+    <a class="btn btn-default" href="{{ path('news_add') }}"><i class="fa fa-plus"></i> Add News</a> <br>
+
+
+    <table class="table table-striped">
+        <thead>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Date Added</th>
+        <th>Enabled</th>
+        <th>Delete</th>
+        <th>Edit</th>
+        </thead>
+        <tbody>
+
+        {% for news in listNews %}
+            <tr>
+                <td>{{ news.title }}</td>
+                <td>{{ news.content | slice(0, 50) | raw}}</td>
+                <td>{{ news.dateAdded | date('Y-m-d') }}</td>
+                <td>{{ news.enable }}</td>
+                <td><a href="{{ path('news_delete', {'id': news.id}) }}">Delete</a></td>
+                <td><a href="{{ path('news_edit', {'id': news.id}) }}">Edit</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+
+{% endblock %}

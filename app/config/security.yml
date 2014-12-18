@@ -30,7 +30,7 @@ security:
             security: false
 
         admin:
-            pattern: ~
+            pattern: ^/
             anonymous: true
             provider: in_memory
             form_login:
@@ -44,10 +44,11 @@ security:
                 key: %secret%
 
 
-
     # with these settings you can restrict or allow access for different parts
     # of your application based on roles, ip, host or methods
     # http://symfony.com/doc/current/book/security.html#security-book-access-control-matching-options
     access_control:
-        #- { path: ^/admin/, roles: ROLE_ADMIN }
-        #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
+        - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY}
+        - { path: /login_check, role: IS_AUTHENTICATED_ANONYMOUSLY }

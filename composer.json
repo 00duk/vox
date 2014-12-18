@@ -19,7 +19,8 @@
         "sensio/framework-extra-bundle": "~3.0",
         "incenteev/composer-parameter-handler": "~2.0",
         "friendsofsymfony/user-bundle": "dev-master",
-        "webfactory/piwik-bundle": "~2.0"
+        "stfalcon/tinymce-bundle": "dev-master",
+        "leafo/lessphp": "dev-master"
 
     },
     "require-dev": {
