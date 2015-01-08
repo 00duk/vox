@@ -1,0 +1,47 @@
+{% extends "voxAdminBundle:Admin:main.html.twig" %}
+
+{% block title %}Releases{% endblock %}
+{% block content_title %}<h1>Releases</h1>{% endblock %}
+
+{% block content %}
+
+{#{{ dump(listReleases) }}#}
+
+
+    <a class="btn btn-default" href="{{ path('newsletter_add') }}"><i class="fa fa-envelope"></i> Compose</a>
+    <a class="btn btn-default" href="{{ path('subscriber_index') }}"><i class="fa fa-users"></i> Subscribers</a>
+
+    <br>
+
+
+    <table class="table table-striped">
+        <thead>
+        <th>Subject</th>
+        <th>Message</th>
+        <th>Date Added</th>
+        <th>Date Sent</th>
+        <th>Delete</th>
+        <th>Edit</th>
+        <th>Preview</th>
+        </thead>
+        <tbody>
+
+        {% for newsletter in listNewsletters %}
+            <tr>
+                <td>{{ newsletter.subject }}</td>
+                <td>{{ newsletter.message | slice(0, 50) | raw}}</td>
+                <td>{{ newsletter.dateAdded | date('Y-m-d') }}</td>
+                <td>{% if newsletter.dateSent != null %}{{ newsletter.dateSent | date('Y-m-d') }} {% endif %}</td>
+                <td><a href="{{ path('newsletter_delete', {'id': newsletter.id}) }}">Delete</a></td>
+                <td><a href="{{ path('newsletter_edit', {'id': newsletter.id}) }}">Edit</a></td>
+                <td><a href="{{ path('newsletter_preview', {'id': newsletter.id}) }}">Preview</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+
+
+{% endblock %}

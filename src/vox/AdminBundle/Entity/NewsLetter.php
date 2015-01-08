@@ -44,6 +44,20 @@ class NewsLetter
 
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_sent", type="datetime", nullable=true)
+     */
+    private $dateSent;
+
+
+    public function __construct()
+    {
+        $this->dateAdded = new \DateTime();
+    }
+
+
+    /**
      * Get id
      *
      * @return integer 
@@ -120,5 +134,29 @@ class NewsLetter
     public function getDateAdded()
     {
         return $this->dateAdded;
+    }
+
+
+    /**
+     * Set dateSent
+     *
+     * @param \DateTime $dateAdded
+     * @return NewsLetter
+     */
+    public function setDateSent($dateSent)
+    {
+        $this->dateSent = $dateSent;
+
+        return $this;
+    }
+
+    /**
+     * Get dateSent
+     *
+     * @return \DateTime
+     */
+    public function getDateSent()
+    {
+        return $this->dateSent;
     }
 }

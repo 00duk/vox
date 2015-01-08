@@ -1,0 +1,22 @@
+{% extends "voxAdminBundle:Admin:main.html.twig" %}
+
+{% block title %}Preview{% endblock %}
+{% block content_title %}<h1>Preview</h1>{% endblock %}
+
+{% block content %}
+
+    <div style="margin: 0 auto; width: 600px;">
+        <br>
+        <p>Subject: {{ subject }}</p>
+
+        <p>{% include 'voxAdminBundle:Mail:template.html.twig' with {'content': content} %}</p>
+
+        <br>
+
+        <a class="btn btn-default" href="{{ path('newsletter_send', {'id' : id}) }}"><i class="fa fa-send"></i> Send Now</a>
+        <a class="btn btn-default" href="{{ path('newsletter_index') }}"><i class="fa fa-clock-o"></i> Send Later</a>
+
+    </div>
+
+
+{% endblock %}

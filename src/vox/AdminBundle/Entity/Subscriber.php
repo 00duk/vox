@@ -43,6 +43,12 @@ class Subscriber
     private $enable;
 
 
+
+    public function __construct() {
+        $this->dateAdded = new \DateTime();
+    }
+
+
     /**
      * Get id
      *

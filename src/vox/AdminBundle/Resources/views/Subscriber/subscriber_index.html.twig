@@ -1,0 +1,42 @@
+{% extends "voxAdminBundle:Admin:main.html.twig" %}
+
+{% block title %}Subscribers{% endblock %}
+{% block content_title %}<h1>Subscribers</h1>{% endblock %}
+
+{% block content %}
+
+{#{{ dump(listReleases) }}#}
+
+
+    <a class="btn btn-default" href="{{ path('subscriber_add') }}"><i class="fa fa-plus"></i> Add Subscriber</a>
+
+    <br>
+
+
+    <table class="table table-striped">
+        <thead>
+        <th>Email</th>
+        <th>Date Added</th>
+        <th>Enable</th>
+        <th>Delete</th>
+        <th>Edit</th>
+        </thead>
+        <tbody>
+
+        {% for subscriber in listSubscribers %}
+            <tr>
+                <td>{{ subscriber.email }}</td>
+                <td>{{ subscriber.dateAdded | date('Y-m-d') }}</td>
+                <td>{{ subscriber.enable }}</td>
+                <td><a href="{{ path('subscriber_delete', {'id': subscriber.id}) }}">Delete</a></td>
+                <td><a href="{{ path('subscriber_edit', {'id': subscriber.id}) }}">Edit</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+
+
+{% endblock %}
